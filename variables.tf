@@ -23,6 +23,13 @@ variable "public_cidr_blocks" {
   description = "Public Subnet CIDRs"
 }
 
+# Provision private subnets in custom VPC
+variable "private_cidr_blocks" {
+  default     = ["10.20.2.0/24", "10.20.3.0/24"]
+  type        = list(string)
+  description = "Public Subnet CIDRs"
+}
+
 # VPC CIDR range
 variable "vpc_cidr" {
   default     = "10.20.0.0/16"
@@ -32,14 +39,17 @@ variable "vpc_cidr" {
 
 # Default tags
 variable "default_tags" {
-  default     = {}
+  default = {
+    Owner = "Behzad"
+    App   = "App"
+  }
   type        = map(any)
   description = "Default tags to be appliad to all AWS resources"
 }
 
 # Prefix to identify resources
 variable "prefix" {
-  #default     = "week7"
+  default     = "default"
   type        = string
   description = "Name prefix"
 }
@@ -47,7 +57,7 @@ variable "prefix" {
 
 # Variable to signal the current environment 
 variable "env" {
-  default     = "dev"
+  default     = "default"
   type        = string
   description = "Deployment Environment"
 }
