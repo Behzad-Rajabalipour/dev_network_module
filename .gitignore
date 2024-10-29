@@ -2,4 +2,5 @@
 .terraform
 *.pem
 *.pub
-.hcl
+*.terraform.lock.hcl
+*.tfstate
