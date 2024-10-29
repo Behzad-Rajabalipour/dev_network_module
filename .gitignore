@@ -4,3 +4,4 @@
 *.pub
 *.terraform.lock.hcl
 *.tfstate
+*.tfstate.*
